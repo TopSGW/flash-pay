@@ -20,11 +20,6 @@ import goodsImg from '../../assets/landing/goods.png';
 import nftImg from '../../assets/landing/nft.png';
 import sourceCodeImg from '../../assets/landing/sourceCode.png';
 import paypalapiImg from '../../assets/landing/paypalapi.png'
-import oneSvg from '../../assets/landing/number/01.svg';
-import twoSvg from '../../assets/landing/number/02.svg';
-import threeSvg from '../../assets/landing/number/03.svg';
-import fourSvg from '../../assets/landing/number/04.svg';
-import fiveSvg from '../../assets/landing/number/05.svg';
 import ecosystemSvg from '../../assets/landing/ecosystem.svg';
 import ecosystemMobileSvg from '../../assets/landing/ecosystem_mobile.svg';
 import pancakeswapSvg from '../../assets/landing/pancakeswap.svg';
@@ -338,7 +333,8 @@ export default function Landing(){
                         <div className='flex flex-row items-center'>
                             <div className='min-w-[94px] min-h-[94px] rounded-md flex justify-center items-center' style={{
                                 background:"rgba(255, 255, 255, 0.1)"}}>
-                                <img src={oneSvg} alt="01"></img>
+                                {/* <img src={oneSvg} alt="01"></img> */}
+                                <h3 className='text-white text-[50px] font-extrabold mb-[4px]'>01</h3>
                             </div>
                             <div className='flex flex-col w-[222px] max-sm:w-full ml-2'>
                                 <p className='text-black text-[14px] font-medium'>
@@ -354,7 +350,7 @@ export default function Landing(){
                         <div className='flex flex-row items-center'>
                             <div className='min-w-[94px] min-h-[94px] rounded-md flex justify-center items-center' style={{
                                 background:"rgba(255, 255, 255, 0.1)"}}>
-                                <img src={twoSvg} alt="02"></img>
+                                <h3 className='text-white text-[50px] font-extrabold mb-[4px]'>02</h3>
                             </div>
                             <div className='flex flex-col w-[222px] max-sm:w-full ml-2'>
                                 <p className='text-black text-[14px] font-medium'>
@@ -370,7 +366,7 @@ export default function Landing(){
                         <div className='flex flex-row items-center'>
                             <div className='min-w-[94px] min-h-[94px] rounded-md flex justify-center items-center' style={{
                                 background:"rgba(255, 255, 255, 0.1)"}}>
-                                <img src={threeSvg} alt="02"></img>
+                                <h3 className='text-white text-[50px] font-extrabold mb-[4px]'>03</h3>
                             </div>
                             <div className='flex flex-col w-[222px] max-sm:w-full ml-2'>
                                 <p className='text-black text-[14px] font-medium'>
@@ -386,7 +382,7 @@ export default function Landing(){
                         <div className='flex flex-row items-center'>
                             <div className='min-w-[94px] min-h-[94px] rounded-md flex justify-center items-center' style={{
                                 background:"rgba(255, 255, 255, 0.1)"}}>
-                                <img src={fourSvg} alt="04"></img>
+                                <h3 className='text-white text-[50px] font-extrabold mb-[4px]'>04</h3>
                             </div>
                             <div className='flex flex-col w-[350px] max-sm:w-full ml-2'>
                                 <p className='text-black text-[14px] font-medium'>
@@ -402,7 +398,7 @@ export default function Landing(){
                         <div className='flex flex-row items-center'>
                             <div className='min-w-[94px] min-h-[94px] rounded-md flex justify-center items-center' style={{
                                 background:"rgba(255, 255, 255, 0.1)"}}>
-                                <img src={fiveSvg} alt="05"></img>
+                                <h3 className='text-white text-[50px] font-extrabold mb-[4px]'>05</h3>
                             </div>
                             <div className='flex flex-col w-[350px] max-sm:w-full ml-2'>
                                 <p className='text-black text-[14px] font-medium'>
