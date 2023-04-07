@@ -1,7 +1,21 @@
 import logo from '../../assets/landing/logo.png'
 import arrowDownSvg from '../../assets/landing/arrow_down.svg';
 import menuSvg from '../../assets/landing/menu.svg';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 export default function HeaderC(){
+    const native = useNavigate();
+    const [nativestate, setnativestate] = useState([true,false]);
+    const handleTransactions = (index) =>{
+        if(index === 0){
+            setnativestate([true,false]);
+            native('/');
+        }
+        else if(index === 1){
+            setnativestate([false, true]);
+            native('/step1');
+        }
+    }
     return(
     <div div className="w-auto m-0 p-0">
         <div className="pl-16 max-lg:pl-10 max-sm:pl-4 py-[8px] max-lg:py-[6px] max-sm:py-2 bg-black flex flex-row items-center">
@@ -20,19 +34,21 @@ export default function HeaderC(){
             </div>
             <div className='ml-auto mr-auto max-xl:hidden'>
                 <div className="flex flex-row items-center w-[300px]">
-                    <div className='pb-1 border-solid border-[#FFAB17] border-b-[1px]'>
+                    <div className={`pb-1 ${nativestate[0] ? 'border-solid border-[#FFAB17] border-b-[1px]' :''} cursor-pointer`}
+                        onClick={()=>handleTransactions(0)}>
                         <h3 className='text-[15px] text-[#FFAB17] leading-3'>Home</h3>
                     </div>
                     <div className='ml-auto mr-auto'>
                         <div className='flex flex-row items-center'>
-                            <h3 className='text-[15px] text-[#FFAB17] leading-3'>New Transaction</h3>
+                            <div className={`text-[15px] pb-1 ${nativestate[1] ? 'border-solid border-[#FFAB17] border-b-[1px]' :''} text-[#FFAB17] leading-3 cursor-pointer`}
+                                onClick={() => handleTransactions(1)}>New Transaction</div>
                             <div className='ml-2'>
                                 <img src={arrowDownSvg} alt="" className='w-[12px]'/>
                             </div>
                         </div>
                     </div>
                     <div className='mr-0'>
-                        <h3 className='text-[15px] text-[#FFAB17] leading-3'>FAQ</h3>
+                        <h3 className='text-[15px] text-[#FFAB17] leading-3 cursor-pointer'>FAQ</h3>
                     </div>
                 </div>
             </div>
