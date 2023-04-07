@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const port = 8875;
+const port = 8800;
 
 app.use(express.static('build'));
 
