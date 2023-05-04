@@ -25,6 +25,8 @@ import ecosystemMobileSvg from '../../assets/landing/ecosystem_mobile.svg';
 import pancakeswapSvg from '../../assets/landing/pancakeswap.svg';
 import uniswapSvg from '../../assets/landing/uniswap.svg'
 import worldmapSvg from '../../assets/landing/worldmap.svg' 
+import OutsideClickHandler from 'react-outside-click-handler';
+import { useState } from 'react';
 
 export default function Landing(){
     const networkImgs=[
@@ -84,6 +86,9 @@ export default function Landing(){
             width:"76px"
         },
     ]
+    const [DropdownState1, setDropdownState1] = useState(false)
+    const [DropdownState2, setDropdownState2] = useState(false)
+    const [CryptoUnit, setCryptoUnit] = useState("BUSD")
     return(
         <div className="w-auto m-0 p-0">
             <div className='mt-20 max-sm:mt-8 flex lg:justify-between max-lg:flex-col items-center px-16 max-lg:px-4'>
@@ -96,13 +101,13 @@ export default function Landing(){
                         <h3 className='text-white text-[16px] font-semibold max-sm:text-[12px]'>TRUSTED</h3>
                     </div>
                     <div className='mt-4'>
-                        <h3 className='text-[4vw] max-lg:text-[20px] text-[#012157] font-bold leading-[4.5vw] max-lg:leading-[24px]
+                        <h3 className='text-[40px] max-lg:text-[20px] text-[#012157] font-bold max-lg:leading-[24px]
                             max-lg:text-center'>
                             Empowering escrow and payments through <span className='text-[#FFAB17]'>Decentralization</span> to Escrow & Payments
                         </h3>
                     </div>
                     <div className='mt-4 max-lg:hidden'>
-                        <h3 className='text-[1.5vw] text-[#6B7280] leading-[1.7vw]'>
+                        <h3 className='text-[20px] text-[#6B7280]'>
                             Use Flash Pay to exchange your crypto for goods, services, and NFTs without any concerns about fraud or incomplete services. Our smart contract technology ensures transparency and security throughout the process.
                         </h3>
                     </div>
@@ -110,10 +115,17 @@ export default function Landing(){
                         border-solid border-[#FFAB17] border-[1px] w-[350px] max-lg:hidden'>
                         <div>
                             <div className='flex flex-row items-center'>
-                                <h3 className='text-[18px] font-medium text-[#143057]'>I’m Selling</h3>
-                                <div className='mx-4'>
-                                    <img src={selectArrowDonwSvg} alt="" className='w-[12px]'></img>
-                                </div>
+                                <OutsideClickHandler onOutsideClick={()=>setDropdownState1(false)}>
+                                    <button className='flex flex-row items-center relative' onClick={()=>setDropdownState1(true)}>
+                                            <h3 className='text-[18px] font-medium text-[#143057]'>I’m Selling</h3>
+                                            <div className='mx-4'>
+                                                <img src={selectArrowDonwSvg} alt="" className='w-[12px]'></img>
+                                            </div>
+                                            <div className='flex flex-col p-2 absolute bg-white top-[37px] right-[16px] w-[125px]' style={{boxShadow: "0 4px 4px rgba(0,0,0,.12),0 0 10px rgba(0,0,0,.06)", display: `${DropdownState1 === true ? 'flex' : 'none' }`}}>
+                                                <div className=' hover:text-[#004299] hover:bg-[#9bd4fa] text-[#575757]'>I’m Selling</div>
+                                            </div>
+                                    </button>
+                                </OutsideClickHandler>                                    
                                 <div className='pl-3 border-solid border-[#757575] border-l-[1px]'>
                                     <h3 className='text-[18px] text-[#757575]'>Graphics, Domain</h3>
                                 </div>
@@ -124,18 +136,24 @@ export default function Landing(){
                         border-[#FFAB17] border-[1px] w-[350px] max-lg:hidden'>
                         <h3 className='text-[18px] text-[#143057] font-medium'>For $</h3>
                         <h3 className='ml-8 mr-auto text-[17px] text-[#757575] font-medium'>800</h3>
-                        <div className='flex flex-row items-center'>
-                            <h3 className='text-[18px] text-[#143057] font-medium'>BUSD</h3>
-                            <div className='ml-2'>
-                                <img src={selectArrowDonwSvg} className="w-[12px]" alt=""></img>
-                            </div>
-                        </div>
+                        <OutsideClickHandler onOutsideClick={()=>setDropdownState2(false)}>
+                            <button className='flex flex-row items-center relative' onClick={()=>setDropdownState2(true)}>
+                                <h3 className='text-[18px] text-[#143057] font-medium'>{CryptoUnit}</h3>
+                                <div className='ml-2'>
+                                    <img src={selectArrowDonwSvg} className="w-[12px]" alt=""></img>
+                                </div>
+                                <div className='flex flex-col p-2 absolute bg-white top-[37px]' style={{boxShadow: "0 4px 4px rgba(0,0,0,.12),0 0 10px rgba(0,0,0,.06)", display: `${DropdownState2 === true ? 'flex' : 'none' }`}}>
+                                    <div className=' hover:text-[#004299] hover:bg-[#9bd4fa] text-[#575757] my-2 px-2' onClick={()=>setCryptoUnit("BUSD")}>BUSD</div>
+                                    <div className=' hover:text-[#004299] hover:bg-[#9bd4fa] text-[#575757] my-2 px-2' onClick={()=>setCryptoUnit("USDT")}>USDT</div>
+                                </div>
+                            </button>
+                        </OutsideClickHandler>
                     </div>
-                    <div className='mt-4 bg-[#FFAB17] py-2 rounded-lg w-[350px] max-lg:hidden'>
+                    <button className='mt-4 bg-[#FFAB17] py-2 rounded-lg w-[350px] max-lg:hidden active:bg-[#cd8a13]'>
                         <h3 className='text-[18px] text-white text-center font-semibold'>
                             Get Started
                         </h3>
-                    </div>
+                    </button>
                 </div>
                 <div className='w-full mt-5 lg:w-[45%]'>
                     <img src={blockchainBgImg} alt="" className='w-full'></img>
@@ -147,8 +165,8 @@ export default function Landing(){
                         </div>
                         <div className='mt-8 px-3 py-2 flex flex-row items-center rounded-lg
                             border-solid border-[#FFAB17] border-[1px] w-[350px] max-sm:w-full'>
-                            <div>
-                                <div className='flex flex-row items-center'>
+                            <OutsideClickHandler onOutsideClick={()=>setDropdownState1(false)}>
+                                <button className='flex flex-row items-center relative' onClick={()=>setDropdownState1(true)}>
                                     <h3 className='text-[18px] font-medium text-[#143057]'>I’m Selling</h3>
                                     <div className='mx-4'>
                                         <img src={selectArrowDonwSvg} alt="" className='w-[12px]'></img>
@@ -156,25 +174,34 @@ export default function Landing(){
                                     <div className='pl-3 border-solid border-[#757575] border-l-[1px]'>
                                         <h3 className='text-[18px] text-[#757575]'>Graphics, Domain</h3>
                                     </div>
-                                </div>
-                            </div>
+                                    <div className='flex flex-col p-2 absolute bg-white top-[37px] w-[125px]' style={{boxShadow: "0 4px 4px rgba(0,0,0,.12),0 0 10px rgba(0,0,0,.06)", display: `${DropdownState1 === true ? 'flex' : 'none' }`}}>
+                                        <div className=' hover:text-[#004299] hover:bg-[#9bd4fa] text-[#575757]'>I’m Selling</div>
+                                    </div>
+                                </button>
+                            </OutsideClickHandler>
                         </div>
                         <div className='mt-4 px-3 py-2 flex flex-row items-center rounded-lg border-solid
                             border-[#FFAB17] border-[1px] w-[350px] max-sm:w-full'>
                             <h3 className='text-[18px] text-[#143057] font-medium'>For $</h3>
                             <h3 className='ml-8 mr-auto text-[17px] text-[#757575] font-medium'>800</h3>
-                            <div className='flex flex-row items-center'>
-                                <h3 className='text-[18px] text-[#143057] font-medium'>BUSD</h3>
-                                <div className='ml-2'>
-                                    <img src={selectArrowDonwSvg} className="w-[12px]" alt=""></img>
-                                </div>
-                            </div>
+                            <OutsideClickHandler onOutsideClick={()=>setDropdownState2(false)}>
+                                <button className='flex flex-row items-center relative' onClick={()=>setDropdownState2(true)}>
+                                    <h3 className='text-[18px] text-[#143057] font-medium'>{CryptoUnit}</h3>
+                                    <div className='ml-2'>
+                                        <img src={selectArrowDonwSvg} className="w-[12px]" alt=""></img>
+                                    </div>
+                                    <div className='flex flex-col p-2 absolute bg-white top-[37px]' style={{boxShadow: "0 4px 4px rgba(0,0,0,.12),0 0 10px rgba(0,0,0,.06)", display: `${DropdownState2 === true ? 'flex' : 'none' }`}}>
+                                        <div className=' hover:text-[#004299] hover:bg-[#9bd4fa] text-[#575757] my-2 px-2' onClick={()=>setCryptoUnit("BUSD")}>BUSD</div>
+                                        <div className=' hover:text-[#004299] hover:bg-[#9bd4fa] text-[#575757] my-2 px-2' onClick={()=>setCryptoUnit("USDT")}>USDT</div>
+                                    </div>
+                                </button>
+                            </OutsideClickHandler>
                         </div>
-                        <div className='mt-4 bg-[#FFAB17] py-2 rounded-lg w-[350px] max-sm:w-full'>
+                        <button className='mt-4 bg-[#FFAB17] py-2 rounded-lg w-[350px] max-sm:w-full active:bg-[#cd8a13]'>
                             <h3 className='text-[18px] text-white text-center font-semibold'>
                                 Get Started
                             </h3>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>

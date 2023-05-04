@@ -10,18 +10,20 @@ import Step4 from './pages/transactions/step4';
 import Result from './pages/transactions/result';
 function App() {
   return (
-    <BrowserRouter>
-      <HeaderC/>
-      <Routes>
-        <Route path='/' element={<Landing/>}/>
-        <Route path='/step1' element={<Step1/>}/>
-        <Route path='/step2' element={<Step2/>}/>
-        <Route path='/step3' element={<Step3/>}/>
-        <Route path='/step4' element={<Step4/>}/>
-        <Route path='/result' element={<Result></Result>}/>
-      </Routes>
-      <Footer/>
-    </BrowserRouter>
+    <div className='max-w-[1800px] mx-auto'>
+      <BrowserRouter>
+        <HeaderC/>
+        <Routes>
+          <Route path='/' element={<Landing/>}/>
+          <Route path='/step1' element={<Step1/>}/>
+          <Route path='/step2' element={<Step2/>}/>
+          <Route path='/step3' element={<Step3/>}/>
+          <Route path='/step4' element={<Step4/>}/>
+          <Route path='/result' element={<Result></Result>}/>
+        </Routes>
+        <Footer/>
+      </BrowserRouter>
+    </div>
   );
 }
 
