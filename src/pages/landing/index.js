@@ -126,8 +126,8 @@ export default function Landing(){
                                             </div>
                                     </button>
                                 </OutsideClickHandler>                                    
-                                <div className='pl-3 border-solid border-[#757575] border-l-[1px]'>
-                                    <h3 className='text-[18px] text-[#757575]'>Graphics, Domain</h3>
+                                <div className='pl-3 border-solid border-[#757575] border-l-[1px] w-[190px]'>
+                                    <input className='text-[18px] text-[#757575] px-2 focus:outline-none w-full' placeholder='Graphics, Domain'/>
                                 </div>
                             </div>
                         </div>
@@ -171,8 +171,8 @@ export default function Landing(){
                                     <div className='mx-4'>
                                         <img src={selectArrowDonwSvg} alt="" className='w-[12px]'></img>
                                     </div>
-                                    <div className='pl-3 border-solid border-[#757575] border-l-[1px]'>
-                                        <h3 className='text-[18px] text-[#757575]'>Graphics, Domain</h3>
+                                    <div className='pl-3 border-solid border-[#757575] border-l-[1px] w-[190px]'>
+                                        <input className='text-[18px] text-[#757575] px-2 focus:outline-none w-full' placeholder='Graphics, Domain'/>
                                     </div>
                                     <div className='flex flex-col p-2 absolute bg-white top-[37px] w-[125px]' style={{boxShadow: "0 4px 4px rgba(0,0,0,.12),0 0 10px rgba(0,0,0,.06)", display: `${DropdownState1 === true ? 'flex' : 'none' }`}}>
                                         <div className=' hover:text-[#004299] hover:bg-[#9bd4fa] text-[#575757]'>I’m Selling</div>
