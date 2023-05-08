@@ -10,7 +10,6 @@ import Step4 from './pages/transactions/step4';
 import Result from './pages/transactions/result';
 function App() {
   return (
-    <div className='max-w-[1800px] mx-auto'>
       <BrowserRouter>
         <HeaderC/>
         <Routes>
@@ -23,7 +22,6 @@ function App() {
         </Routes>
         <Footer/>
       </BrowserRouter>
-    </div>
   );
 }
 

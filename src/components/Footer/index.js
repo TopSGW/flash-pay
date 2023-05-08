@@ -32,10 +32,10 @@ export default function Footer(){
                 <div className='mt-6 flex flex-row justify-center items-center'>
                     {footerImgs.map((m,index) =>{
                         return(
-                            <div key={index}>
+                            <a key={index} href=''>
                                 <img src={m.img} alt="img" className='mx-4 max-md:mx-2 max-sm:mx-1
                                 max-sm:max-w-[35px]'></img>
-                            </div>
+                            </a>
                         )
                     })}
                 </div>
